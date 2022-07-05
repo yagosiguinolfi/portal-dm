@@ -1,0 +1,58 @@
+@{
+
+
+
+  Dim dadosCripto, obj;
+
+
+
+  codEmp = "J0522416350001840000003978"; //Coloque aqui o código da empresa
+
+
+
+  // J0522416350001840000003978
+
+
+
+  Chave = "D52435A1F79KO8C6"; // Coloque aqui a chave de criptografia
+
+
+
+  codSacado = request("codSacado")
+
+
+// D52435A1F79KO8C6@
+
+
+
+  Set obj = server.createobject("Itaucripto.cripto");
+
+
+
+  dadosCripto = obj.geraCripto(codEmp, codSacado, Chave);
+
+
+
+  Set obj = nothing;
+}
+<HTML>
+
+<BODY>
+  <CENTER>Exemplo de código ASP</CENTER>
+
+  <FORM ACTION="https://ww2.itau.com.br/2viabloq/pesquisa.asp" METHOD="Post" name="form" onsubmit="carregabrw()"
+    target="BLOQUETO">
+    <INPUT type="hidden" name="DC" value="<%= dadosCripto %>">
+    <INPUT type="hidden" name="msg" value="S">
+    <INPUT type="submit" name="Bloqueto" value="Segunda Via Bloqueto">
+  </form>
+  <script language="JavaScript">
+
+    function carregabrw() {
+      window.open('', 'BLOQUETO', 'toolbar=yes,menubar=yes,resizable=yes,status=no,scrollbars=yes,left=0,top=0,width=600,height=430');
+    }
+
+  </script>
+</BODY>
+
+</HTML>
